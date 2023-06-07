@@ -1,10 +1,10 @@
 # daci-rc
-Acesta este repo-ul care contine fisierele cu programele care stau la baza functionarii robotului.
-## Continut
-- folderul `detect_cubes` contine in fisierul `main.py` un program care determina ce culoare are cubul care se afla in fata robotului.
-- folderul `raspberry` contine in fisierul `main.py` programul care se ocupa de miscarea robotului pe harta, in functie de pereti.
-- folderul `servo_calib` contine in fisierul `servo_calib.ino` calibrarea servo-motorului de pe robot.
+Acesta este repo-ul care conține fișierele cu programele care stau la baza funcționării robotului.
+## Conținut
+- folderul `detect_cubes` conține în fișierul `main.py` un program care determină ce culoare are cubul care se află in fața robotului.
+- folderul `raspberry` conține în fișierul `main.py` programul care se ocupă de mișcarea robotului pe hartă, în funcție de pereți.
+- folderul `servo_calib` conține în fișierul `servo_calib.ino` calibrarea servo-motorului de pe robot.
 ## main.py (detect_cubes)
-Acest program utilizeaza informatiile transmise de camera printr-un cablu USB(culoare, dimensiune, pozitie si confidenta). Intai determina ce fel de obstacol se afla in fata lui, cub sau perete, calculand suprafata acestuia. Pentru fiecare cub gasit, se modifica set-pointul in functie de culoarea sa. 
+Acest program utilizează informațiile transmise de cameră printr-un cablu USB(culoare, dimensiune, poziție si confidență). Întâi determină ce fel de obstacol se află în fața lui, cub sau perete, calculând suprafața acestuia. Pentru fiecare cub găsit, se modifică set-pointul în funcție de culoarea sa. 
 ## main.py (raspberry)
-Programul foloseste *time of light* pentru a calcula distanta pana la obstacol, calculeaza unghiul de rotatie si regleaza viteza pentru a lua curba intr-un mod cat mai eficient. 
+Programul folosește *time of light*(timpul necesar luminii pentru a ajunge la obiect) pentru a calcula distanța până la obstacol, calculează unghiul cu care trebuie să ia curba și reglează viteza pentru a schimba direcția într-un mod cât mai eficient. 
