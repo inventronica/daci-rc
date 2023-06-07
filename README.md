@@ -20,7 +20,7 @@ Programul folosește *time of light* (timpul necesar luminii pentru a ajunge la 
 
 Modul de comunicare cu placa Raspberry Pi este prin SSH (Secure Shell), un protocol de comunicare securizat prin care placa poate să fie accesată de pe orice dispozitiv oferind acces la un terminal. Conectarea se face prin comanda `ssh [user]@[ipadress] -p [port]` unde user este user-ul de pe placa (implicit "pi"); ipadress este adresa ip locală a plăcii și port este portul ssh deschis pe placă (implicit 22) de exemplu modul implicit de conectare arată așa: `ssh pi@192.168.x.x -p 22` și când este solicitată se introduce parola user-ului, setată în momentul creării imaginii și sistemului de operare (implicit Raspberry). 
 
-## Instructiuni instalare 
+## Instrucțiuni instalare 
 
 1. Instalarea sistemului de operare pe placa Raspberry
 2. Conectarea prin SSH la placă
