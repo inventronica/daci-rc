@@ -5,7 +5,7 @@ Acesta este repo-ul care conține fișierele cu programele care stau la baza fun
 ## Conținut
 
 - folderul [`src`](../master/src) conține toate fișierele cu programul propriu-zis al robotului.
-- folderul `raspberry` conține în fișierul `main.py` programul care se ocupă de mișcarea robotului pe hartă, în funcție de pereți.
+- folderul [`raspberry`](../master/raspberry) conține în fișierul `main.py` programul care se ocupă de mișcarea robotului pe hartă, în funcție de pereți.
 - folderul `servo_calib` conține în fișierul `servo_calib.ino` calibrarea servo-motorului de pe robot.
 
 ## main.py (detect_cubes)
