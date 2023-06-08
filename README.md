@@ -54,7 +54,7 @@ Funcția `get_output()` este esențială pentru eficiența programului, calculea
 
 Fișierul [`sensors.py`](../master/src/sensors.py) conține clasele pentru toți senzorii, precum și teste asociate fiecărei clase, permițând verificarea eficienței programului.
 
-În clasa `Color()` se găsește funcția `color_read()` care are rolul de a determina culoarea detectată de senzorul de culoare. Funcția returnează **0** în cazul în care senzorul nu detectează nici albastru, nici oranj, **1** dacă detectează culoarea oranj și **2** dacă detectează culoarea albastră. Această informație este utilă pentru a determina direcția în care se deplasează robotul și pentru a efectua curbele necesare în direcția corespunzătoare. Biblioteca senzorului de culoare oferă capacitatea de a obține date prin intermediul valorilor `R`,`G`,`B`. Prin utilizarea unei funcții matematice adecvate, putem determina culoarea detectată de către senzor.
+În clasa `Color()` se găsește funcția `color_read()` care are rolul de a determina culoarea detectată de senzorul de culoare. Funcția returnează **0** în cazul în care senzorul nu detectează nici albastru, nici oranj, **1** dacă detectează culoarea oranj și **2** dacă detectează culoarea albastră. Această informație este utilă pentru a determina direcția în care se deplasează robotul și pentru a efectua curbele necesare în direcția corespunzătoare. Biblioteca senzorului de culoare oferă capacitatea de a obține date prin intermediul valorilor **R**,**G**,**B**. Prin utilizarea unei funcții matematice adecvate, putem determina culoarea detectată de către senzor.
 
 În această clasă, se mai află și funcțiile `power_off()` și `power_on()`, care se ocupă de resetarea senzorului.
 
