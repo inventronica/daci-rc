@@ -21,14 +21,19 @@ Funcția `run_gyro_follower` are un scop similar cu funcția `run_follower()`, c
 
 `change_lane()`, folosește niște instrucțiuni prin care robotul poate să schimbe "banda" pe care se află. Pentru a fi un transfer cât mai sigur, robotul va face mai întâi un unghi de 45 de grade față de unghiul la care se afla înainte, iar apoi se redresează pe traiectoria inițială, însă cu peretele verificat de senzorul de distanță schimbat.
 
-
-
 ## [main.py](../master/src/main.py) 
 
 Acest program utilizează informațiile transmise de cameră printr-un cablu USB (**culoare, dimensiune, poziție** și **confidență**). Folosește câte un **set-point** pentru fiecare tip de cub (**verde** sau **roșu**). Mărimi precum **suprafața, profunzimea** și **confidența** sunt inițializate la început, iar când este detectat un obstacol în față, se compară suprafața sa cu cea predefinită (**nulă**). Dacă
  suprafața obiectului este mai mare, este clasificat ca fiind cub. Apoi, în funcție de culoarea pe care o returnează camera, determină dacă este unul verde sau roșu. în fiecare caz, set-pointul pentru culoarea respectivă se schimbă și valoarea suprafeței se înlocuiește cu cea a cubului pentru a se putea repeta procesul. Dacă în fața robotului nu se află nici un cub, este folosită o variabilă care la început are valoarea 'UNKNOWN'. Dacă suprafața detectată nu este mai mare ca cea determinată anterior, variabila `next_cube` rămâne neschimbată.
 
  ## [motors.py](../master/src/motors.py)
+Codul necesar controlării servomotorului și a motorului responsabil de mișcarea mașinii este localizat în fișierul [`motors.py`](../master/src/motors.py).
+
+La începutul codului, sunt inițializate limitele de putere pentru motoare și limitele minime și maxime pentru funcționarea servomotorului, precum și pinii de control necesari.
+
+În această clasă se află funcția `set_speed()`, care inițial verifică integritatea parametrilor și îi încadrează între limite, dacă este cazul, apoi, în funcție de viteza setată, trimite date pe pinii `PWM`, pentru a determina mișcarea mașinii.
+
+În aceeași clasă, se găsește și funcția `set_direction`, care primește ca parametru unghiul dorit pentru servomotor. Prin intermediul unui mapping calculat, această funcție convertește valorile și modifică orientarea roților în consecință.
 
  ## [pid.py](../master/src/pid.py)
 
