@@ -36,8 +36,19 @@ Codul necesar controlării servomotorului și a motorului responsabil de mișcar
 
 În aceeași clasă, se găsește și funcția `set_direction`, care primește ca parametru unghiul dorit pentru servomotor. Prin intermediul unui mapping calculat, această funcție convertește valorile și modifică orientarea roților în consecință.
 
- ## [pid.py](../master/src/pid.py)
+## [pid.py](../master/src/pid.py)
+ 
+Fișierul [pid.py](../master/src/pid.py) conține codul esențial pentru eficientizarea mișcării robotului. PID-ul este folosit pentru a reduce eroarea prin componentele de proporționalitate, derivatele și integralele.
 
+În funcția `set_point()`, este setată pentru PID-ul senzorilor de distanță valoarea dorită pentru a determina distanța robotului față de perete.
+
+Pentru a integra într-un mod cât mai eficient componentele necesare, este folosit un PID pentru giroscop și unul pentru senzorii de distanță.
+
+În funcția `get_error`, se îmbină unghiul de la giroscop cu distanța față de perete, astfel robotul reușeste să se îndrepte pe traseu, acesta urmând un curs cât mai eficient. De asemenea, aici se setează peretele după care să se orienteze și se returnează eroarea, pe care robotul trebuie să o aducă cât mai aproape de 0.
+
+Funcția `get_output()` este esențială pentru eficiența programului, calculează și returnează unghiul la care robotul trebuie să se orienteze pentru a face schimbări mici, prin care acesta să ajungă pe drumul potrivit.
+
+> [dependencies.txt](../master/dependencies.txt) este fișierul de pe care, la instalarea codului, trebuie inserate comenzile responsabile de încărcarea bibliotecilor necesare funcționării.
  ## [sensors.py](../master/src/sensors.py)
 
 Fișierul [`sensors.py`](../master/src/sensors.py) conține clasele pentru toți senzorii, precum și teste asociate fiecărei clase, permițând verificarea eficienței programului.
