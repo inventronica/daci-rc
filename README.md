@@ -4,8 +4,8 @@ Acesta este repo-ul care conține fișierele cu programele care stau la baza fun
 
 ## Conținut
 
-- folderul [`photos`](../master/photos) care  conține poze cu echipa ([`team_photos`](../master/photos/team_photos)), dar și cu robotul din toate părțile ([`robot_photos`](../master/photos/robot_photos));
--folderul [`scheme`](../master/scheme) care conține schema robotului.
+- folderul [`photos`](../master/photos) care  conține poze cu echipa ([`team_photos`](../master/photos/team_photos)), dar și cu robotul din toate părțile ([`robot_photos`](../master/photos/robot_photos))ș
+- folderul [`scheme`](../master/scheme) care conține schema robotului.
 - folderul [`src`](../master/src) conține toate fișierele cu programul propriu-zis al robotului;
 
 ## main.py 
