@@ -14,11 +14,11 @@ Acest program utilizează informațiile transmise de cameră printr-un cablu USB
 
 ## main.py (raspberry)
 
-Programul folosește *time of light* (timpul necesar luminii pentru a ajunge la obiect) pentru a calcula distanța până la obstacol, calculează unghiul cu care trebuie să ia curba și reglează viteza pentru a schimba direcția într-un mod cât mai eficient. 
+Programul acesta se ocupă de mișcarea propriu-zisă a robotului pe hartă. Are câte o variabliă pentru viteza maximă, respectiv minimă și PWM-ul pentru partea stângă și cea dreaptă. Când ajunge la curbă, setează viteza astfel: dacă e prea mare, îi dă valoarea `MAX_SPEED`, iar dacă e prea mică, cea `-MAX_SPEED`. De asemenea, se schimbă și PWM-ul dacă e pozitivă, respectiv negativă. Direcția este setată în funcție de poziția robotului pe hartă și valoarea maximă, respectiv minimă a servo-motorului. Distanța până la obstacol este calculată cu `time of light` (timpul necear luminii pentru a ajuge la obiect) și GPIO.
 
 ## SSH
 
-Modul de comunicare cu placa Raspberry Pi este prin SSH (Secure Shell), un protocol de comunicare securizat prin care placa poate să fie accesată de pe orice dispozitiv oferind acces la un terminal. Conectarea se face prin comanda `ssh [user]@[ipadress] -p [port]` unde user este user-ul de pe placa (implicit "pi"); ipadress este adresa ip locală a plăcii și port este portul ssh deschis pe placă (implicit 22) de exemplu modul implicit de conectare arată așa: `ssh pi@192.168.x.x -p 22` și când este solicitată se introduce parola user-ului, setată în momentul creării imaginii și sistemului de operare (implicit Raspberry). 
+Modul de comunicare cu placa Raspberry Pi este prin SSH (Secure Shell), un protocol de comunicare securizat prin care placa poate să fie accesată de pe orice dispozitiv oferind acces la un terminal. Conectarea se face prin comanda `ssh [user]@[ipadress] -p [port]` unde user este user-ul de pe placa (implicit "pi"); ipadress este adresa ip locală a plăcii și port este portul SSH deschis pe placă (implicit 22) de exemplu modul implicit de conectare arată așa: `ssh pi@192.168.x.x -p 22` și când este solicitată se introduce parola user-ului, setată în momentul creării imaginii și sistemului de operare (implicit Raspberry). 
 
 ## Instrucțiuni instalare 
 
@@ -30,5 +30,5 @@ Modul de comunicare cu placa Raspberry Pi este prin SSH (Secure Shell), un proto
 
 ## Conexiunea cu Raspberry 
 
-Descarca si instaleaza Raspberry Pi Imager pe un calculator cu un cititor de carduri SD. Pune cardul SD pe care o sa il folosesti cu Raspberry Pi in cititor si deschide Raspberry Pi Imager. 
+Descarcă și instalează Raspberry Pi Imager pe un calculator cu un cititor de carduri SD. Pune cardul SD pe care o să îl folosești cu Raspberry Pi în cititor și deschide Raspberry Pi Imager. 
 www.raspberrypi.com/software/
