@@ -8,12 +8,19 @@ Acesta este repo-ul care conține fișierele cu programele care stau la baza fun
 - folderul [`scheme`](../master/scheme) care conține schema robotului.
 - folderul [`src`](../master/src) conține toate fișierele cu programul propriu-zis al robotului;
 
-## main.py 
+## [follower.py](../master/src/follower.py)
+
+
+## [main.py](../master/src/main.py) 
 
 Acest program utilizează informațiile transmise de cameră printr-un cablu USB (**culoare, dimensiune, poziție** și **confidență**). Folosește câte un **set-point** pentru fiecare tip de cub (**verde** sau **roșu**). Mărimi precum **suprafața, profunzimea** și **confidența** sunt inițializate la început, iar când este detectat un obstacol în față, se compară suprafața sa cu cea predefinită (**nulă**). Dacă
  suprafața obiectului este mai mare, este clasificat ca fiind cub. Apoi, în funcție de culoarea pe care o returnează camera, determină dacă este unul verde sau roșu. în fiecare caz, set-pointul pentru culoarea respectivă se schimbă și valoarea suprafeței se înlocuiește cu cea a cubului pentru a se putea repeta procesul. Dacă în fața robotului nu se află nici un cub, este folosită o variabilă care la început are valoarea 'UNKNOWN'. Dacă suprafața detectată nu este mai mare ca cea determinată anterior, variabila `next_cube` rămâne neschimbată.
 
- 
+ ## [motors.py](../master/src/motors.py)
+
+ ## [pid.py](../master/src/pid.py)
+
+ ## [sensors.py](../master/src/sensors.py)
 
 ## SSH
 
