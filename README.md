@@ -4,15 +4,9 @@ Acesta este repo-ul care conține fișierele cu programele care stau la baza fun
 
 ## Conținut
 
-<<<<<<< HEAD
 - folderul [`src`](../master/src) conține toate fișierele cu programul propriu-zis al robotului.
 - folderul [`raspberry`](../master/raspberry) conține în fișierul [`main.py`](../master/raspberry/main.py) programul care se ocupă de mișcarea robotului pe hartă, în funcție de pereți.
 - folderul [`servo_calib`](../master/servo_calib) conține în fișierul [`servo_calib.ino`](../master/servo_calib/servo_calib.ino) calibrarea servo-motorului de pe robot.
-=======
-- folderul `detect_cubes` conține în fișierul `main.py` un program care determină ce culoare are cubul care se află in fața robotului.
-- folderul `raspberry` conține în fișierul `main.py` programul care se ocupă de mișcarea robotului pe hartă, în funcție de pereți.
-- folderul `servo_calib` conține în fișierul `servo_calib.ino` calibrarea servo-motorului de pe robot.
->>>>>>> parent of 908f6e3 (Update README.md)
 
 ## main.py (detect_cubes)
 
@@ -20,7 +14,7 @@ Acest program utilizează informațiile transmise de cameră printr-un cablu USB
 
 ## main.py (raspberry)
 
-Programul acesta se ocupă de mișcarea propriu-zisă a robotului pe hartă. Are câte o variabliă pentru viteza maximă, respectiv minimă și PWM-ul pentru partea stângă și cea dreaptă. Funcția `get_gyro` calculează, cu ajutorul giroscopului, unghiul cu care robotul trebuie să ia curba. Când ajunge la curbă, setează viteza în funcția `set_speed` astfel: dacă e prea mare, îi dă valoarea `MAX_SPEED`, iar dacă e prea mică, cea `-MAX_SPEED`. De asemenea, se schimbă și PWM-ul dacă e pozitivă, respectiv negativă. Direcția este setată în funcția `set_direction`, folosind ca parametri poziția robotului pe hartă și valoarea maximă, respectiv minimă a servo-motorului. Distanța până la obstacol este calculată în funcția `set_tof` cu Time-Of-Flight (timpul necear luminii pentru a ajuge la obiect) și GPIO. 
+Programul acesta se ocupă de mișcarea propriu-zisă a robotului pe hartă. Are câte o variabliă pentru viteza maximă, respectiv minimă și PWM-ul pentru partea stângă și cea dreaptă. Funcția `get_gyro()` calculează, cu ajutorul giroscopului, unghiul cu care robotul trebuie să ia curba. Când ajunge la curbă, setează viteza în funcția `set_speed()` astfel: dacă e prea mare, îi dă valoarea `MAX_SPEED`, iar dacă e prea mică, cea `-MAX_SPEED`. De asemenea, se schimbă și PWM-ul dacă e pozitivă, respectiv negativă. Direcția este setată în funcția `set_direction()`, folosind ca parametri poziția robotului pe hartă și valoarea maximă, respectiv minimă a servo-motorului. Distanța până la obstacol este calculată în funcția `set_tof()` cu Time-Of-Flight (timpul necear luminii pentru a ajuge la obiect) și GPIO. 
 
 ## SSH
 
