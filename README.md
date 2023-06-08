@@ -50,6 +50,30 @@ Funcția `get_output()` este esențială pentru eficiența programului, calculea
 > [dependencies.txt](../master/dependencies.txt) este fișierul de pe care, la instalarea codului, trebuie inserate comenzile responsabile de încărcarea bibliotecilor necesare funcționării.
 
  ## [sensors.py](../master/src/sensors.py)
+ 
+ [Sensors.py](../master/src/sensors.py) conține clasele tuturor senzorilor, dar și teste pentru fiecare clasă, pentru a permite verificarea eficienței programului.
+ 
+ ```python
+class Color()
+```
+În acestă clasă se află funcția `color_read()`, care returnează _0_ dacă senzorul de culoare nu vede nici albastru, nici oranj, _1_ dacă vede culoarea oranj și _2_ dacă vede albastru. Această funcție ajută la detectarea direcției în care merge robotul și pentru a face curbele necesare, în direcția potrivită.
+Biblioteca senzorului de culoare oferă capacitatea de a primi date prin valori **R**, **G**, **B**. Astfel, folosind o funcție matematică, se poate determina culoarea pe care o vede senzorul.
+
+În această clasă, se mai află și funcțiile `power_off()` și `power_on()`, care se ocupă de resetarea senzorului.
+
+```python
+class Gyro()
+```
+
+Această clasă cuprinde funcția `calculate_angle()`, care folosind viteza unghiulară redată de giroscop, reușește printr-o formulă matematică să ne returneze unghiul la care se află robotul, față de unghiul inițial la care a fost, când acesta a fost pornit.
+
+```python
+class Tof()
+```
+
+Deoarece senzorii de distanță și senzorul de culoare au aceeași adresă, la inițializarea obiectului se folosesc instrucțiunile prin care este facută posibilă schimbarea adresei, succesiv, doar la începutul programului. Adresa inițială este _0x29_, iar senzorii de distanță dispun de un pin _XSHUT_, pentru resetare. Astfel, mai întâi ambii senzori de distanță sunt conectați și senzorul de culoare este oprit (folosind un tranzistor). Apoi, se schimbă adresa senzorilor de distanță, în continuare se resetează un senzor de distanță, apoi i se schimbă și lui adresa. În final, se pornește senzorul de culoare, care rămâne pe adresa inițială, deoarece librăria acestuia nu cuprinde o funcție pentru schimbarea adresei. Toate aceste lucruri se pot apela în funcțiile `change_address()` și `reset_address()`.
+
+Funcția `get_distance()` returnează cu ușurință, printr-o valoare de tip _double_, distanța pe care o face cu peretele, în centrimetri.
 
 ## SSH
 
