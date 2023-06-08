@@ -10,7 +10,7 @@ Acesta este repo-ul care conține fișierele cu programele care stau la baza fun
 
 ## main.py (detect_cubes)
 
-Acest program utilizează informațiile transmise de cameră printr-un cablu USB (culoare, dimensiune, poziție si confidență). Întâi determină ce fel de obstacol se află în fața lui, cub sau perete, calculând suprafața acestuia. Pentru fiecare cub găsit, se modifică set-pointul în funcție de culoarea sa. 
+Acest program utilizează informațiile transmise de cameră printr-un cablu USB (culoare, dimensiune, poziție si confidență). Folosește câte un set-point pentru fiecare tip de cub (verde sau roșu). Mărimi precum suprafața, profunzimea și confidența sunt inițializate la început, iar când este detectat un obstacol în față, se compară suprafața sa cu cea predefinită (nulă). Daca suprafața obiectului este mai mare, este clasificat ca fiind cub. Apoi, în funcție de culoarea pe care o returnează camera, determină dacă este unul verde sau roșu. în fiecare caz, set-pointul pentru culoarea respectivă se schimbă și valoarea suprafeței se înlocuiește cu cea a cubului pentru a se putea repeta procesul. Dacă în fața robotului nu se află nici un cub, este folosită o variabilă care la început are valoarea 'UNKNOWN'. Dacă suprafața detectată nu este mai mare ca cea determinată anterior, variabila `next_cube` rămâne neschimbată.
 
 ## main.py (raspberry)
 
