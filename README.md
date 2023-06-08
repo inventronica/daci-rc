@@ -48,13 +48,13 @@ Pentru a integra într-un mod cât mai eficient componentele necesare, este folo
 
 Funcția `get_output()` este esențială pentru eficiența programului, calculează și returnează unghiul la care robotul trebuie să se orienteze pentru a face schimbări mici, prin care acesta să ajungă pe drumul potrivit.
 
-> [dependencies.txt](../master/dependencies.txt) este fișierul de pe care, la instalarea codului, trebuie inserate comenzile responsabile de încărcarea bibliotecilor necesare funcționării.
+`[dependencies.txt](../master/dependencies.txt)` este fișierul de pe care, la instalarea codului, trebuie inserate comenzile responsabile de încărcarea bibliotecilor necesare funcționării.
+
  ## [sensors.py](../master/src/sensors.py)
 
 Fișierul [`sensors.py`](../master/src/sensors.py) conține clasele pentru toți senzorii, precum și teste asociate fiecărei clase, permițând verificarea eficienței programului.
 
-În clasa `Color()` se găsește funcția `color_read()` care are rolul de a determina culoarea detectată de senzorul de culoare. Funcția returnează **0** în cazul în care senzorul nu detectează nici albastru, nici oranj, **1** dacă detectează culoarea oranj și **2** dacă detectează culoarea albastră. Această informație este utilă pentru a determina direcția în care se deplasează robotul și pentru a efectua curbele necesare în direcția corespunzătoare. 
-<div style= "display:inline">Biblioteca senzorului de culoare oferă capacitatea de a obține date prin intermediul valorilor <div style="color:red;display:inline">R</div>,<div style="color:green;display:inline">G</div>,<div style="color:blue;display:inline">B</div>. Prin utilizarea unei funcții matematice adecvate, putem determina culoarea detectată de către senzor.</div>
+În clasa `Color()` se găsește funcția `color_read()` care are rolul de a determina culoarea detectată de senzorul de culoare. Funcția returnează **0** în cazul în care senzorul nu detectează nici albastru, nici oranj, **1** dacă detectează culoarea oranj și **2** dacă detectează culoarea albastră. Această informație este utilă pentru a determina direcția în care se deplasează robotul și pentru a efectua curbele necesare în direcția corespunzătoare. Biblioteca senzorului de culoare oferă capacitatea de a obține date prin intermediul valorilor `R`,`G`,`B`. Prin utilizarea unei funcții matematice adecvate, putem determina culoarea detectată de către senzor.
 
 În această clasă, se mai află și funcțiile `power_off()` și `power_on()`, care se ocupă de resetarea senzorului.
 
