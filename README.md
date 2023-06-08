@@ -38,7 +38,7 @@ Codul necesar controlării servomotorului și a motorului responsabil de mișcar
 
 ## [pid.py](../master/src/pid.py)
  
-Fișierul [pid.py](../master/src/pid.py) conține codul esențial pentru eficientizarea mișcării robotului. PID-ul este folosit pentru a reduce eroarea prin componentele de proporționalitate, derivatele și integralele.
+Fișierul [`pid.py`](../master/src/pid.py) conține codul esențial pentru eficientizarea mișcării robotului. PID-ul este folosit pentru a reduce eroarea prin componentele de proporționalitate, derivatele și integralele.
 
 În funcția `set_point()`, este setată pentru PID-ul senzorilor de distanță valoarea dorită pentru a determina distanța robotului față de perete.
 
@@ -70,13 +70,13 @@ Modul de comunicare cu placa Raspberry Pi este prin SSH (Secure Shell), un proto
 
 ## Instrucțiuni instalare 
 
-1. Instalarea sistemului de operare pe placa Raspberry
-2. Conectarea prin SSH la placă
-3. Clonarea repository-ului de git: `git clone git@github.com:inventronica/druid-rc.git` 
-4. Deschiderea folderului: `cd druid-rc/raspberry`
-5. Rularea aplicației cu comanda `python3 main.py`
+1. Instalarea sistemului de operare pe placa Raspberry;
+2. Conectarea prin SSH la placă;
+3. Clonarea repository-ului de git: `git clone git@github.com:inventronica/daci-rc.git`;
+4. Instalarea bibliotecilor din fișierul ` dependencies.txt`, prin terminalul plăcii;
+5. Deschiderea folderului: `cd daci-rc/src/`;
+6. Rularea aplicației cu comanda `python3 main.py`.
 
 ## Conexiunea cu Raspberry 
 
-Descarcă și instalează Raspberry Pi Imager pe un calculator cu un cititor de carduri SD. Pune cardul SD pe care o să îl folosești cu Raspberry Pi în cititor și deschide Raspberry Pi Imager. 
-www.raspberrypi.com/software/
+Descarcă și instalează [`Raspberry Pi Imager`](www.raspberrypi.com/software/) pe un calculator cu un cititor de carduri SD. Pune cardul SD pe care o să îl folosești cu Raspberry Pi în cititor și deschide Raspberry Pi Imager. 
