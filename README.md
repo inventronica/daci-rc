@@ -30,51 +30,15 @@ Acest program utilizează informațiile transmise de cameră printr-un cablu USB
 
 Codul necesar controlării servomotorului și a motorului responsabil de mișcarea mașinii este localizat în fișierul [`motors.py`](../master/src/motors.py).
 
-În clasa `Motors()`, la începutul codului, sunt inițializate limitele de putere pentru motoare și limitele minime și maxime pentru funcționarea servomotorului, precum și pinii de control necesari.
+În clasa `Motors()`,la începutul codului, sunt inițializate limitele de putere pentru motoare și limitele minime și maxime pentru funcționarea servomotorului, precum și pinii de control necesari.
 
 În această clasă se află funcția `set_speed()`, care inițial verifică integritatea parametrilor și îi încadrează între limite, dacă este cazul, apoi, în funcție de viteza setată, trimite date pe pinii **PWM**, pentru a determina mișcarea mașinii.
 
 În aceeași clasă, se găsește și funcția `set_direction`, care primește ca parametru unghiul dorit pentru servomotor. Prin intermediul unui mapping calculat, această funcție convertește valorile și modifică orientarea roților în consecință.
 
  ## [pid.py](../master/src/pid.py)
- 
-Fișierul [pid.py](../master/src/pid.py) conține codul esențial pentru eficientizarea mișcării robotului. PID-ul este folosit pentru a reduce eroarea prin componentele de proporționalitate, derivatele și integralele.
-
-În funcția `set_point()`, este setată pentru PID-ul senzorilor de distanță valoarea dorită pentru a determina distanța robotului față de perete.
-
-Pentru a integra într-un mod cât mai eficient componentele necesare, este folosit un PID pentru giroscop și unul pentru senzorii de distanță.
-
-În funcția `get_error`, se îmbină unghiul de la giroscop cu distanța față de perete, astfel robotul reușeste să se îndrepte pe traseu, acesta urmând un curs cât mai eficient. De asemenea, aici se setează peretele după care să se orienteze și se returnează eroarea, pe care robotul trebuie să o aducă cât mai aproape de 0.
-
-Funcția `get_output()` este esențială pentru eficiența programului, calculează și returnează unghiul la care robotul trebuie să se orienteze pentru a face schimbări mici, prin care acesta să ajungă pe drumul potrivit.
-
-> [dependencies.txt](../master/dependencies.txt) este fișierul de pe care, la instalarea codului, trebuie inserate comenzile responsabile de încărcarea bibliotecilor necesare funcționării.
 
  ## [sensors.py](../master/src/sensors.py)
- 
- [Sensors.py](../master/src/sensors.py) conține clasele tuturor senzorilor, dar și teste pentru fiecare clasă, pentru a permite verificarea eficienței programului.
- 
- ```python
-class Color()
-```
-În acestă clasă se află funcția `color_read()`, care returnează _0_ dacă senzorul de culoare nu vede nici albastru, nici oranj, _1_ dacă vede culoarea oranj și _2_ dacă vede albastru. Această funcție ajută la detectarea direcției în care merge robotul și pentru a face curbele necesare, în direcția potrivită.
-Biblioteca senzorului de culoare oferă capacitatea de a primi date prin valori **R**, **G**, **B**. Astfel, folosind o funcție matematică, se poate determina culoarea pe care o vede senzorul.
-
-În această clasă, se mai află și funcțiile `power_off()` și `power_on()`, care se ocupă de resetarea senzorului.
-
-```python
-class Gyro()
-```
-
-Această clasă cuprinde funcția `calculate_angle()`, care folosind viteza unghiulară redată de giroscop, reușește printr-o formulă matematică să ne returneze unghiul la care se află robotul, față de unghiul inițial la care a fost, când acesta a fost pornit.
-
-```python
-class Tof()
-```
-
-Deoarece senzorii de distanță și senzorul de culoare au aceeași adresă, la inițializarea obiectului se folosesc instrucțiunile prin care este facută posibilă schimbarea adresei, succesiv, doar la începutul programului. Adresa inițială este _0x29_, iar senzorii de distanță dispun de un pin _XSHUT_, pentru resetare. Astfel, mai întâi ambii senzori de distanță sunt conectați și senzorul de culoare este oprit (folosind un tranzistor). Apoi, se schimbă adresa senzorilor de distanță, în continuare se resetează un senzor de distanță, apoi i se schimbă și lui adresa. În final, se pornește senzorul de culoare, care rămâne pe adresa inițială, deoarece librăria acestuia nu cuprinde o funcție pentru schimbarea adresei. Toate aceste lucruri se pot apela în funcțiile `change_address()` și `reset_address()`.
-
-Funcția `get_distance()` returnează cu ușurință, printr-o valoare de tip _double_, distanța pe care o face cu peretele, în centrimetri.
 
 Fișierul [`sensors.py`](../master/src/sensors.py) conține clasele pentru toți senzorii, precum și teste asociate fiecărei clase, permițând verificarea eficienței programului.
 
