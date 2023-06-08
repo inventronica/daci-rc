@@ -14,7 +14,7 @@ Acest program utilizează informațiile transmise de cameră printr-un cablu USB
 
 ## main.py (raspberry)
 
-Programul acesta se ocupă de mișcarea propriu-zisă a robotului pe hartă. Are câte o variabliă pentru viteza maximă, respectiv minimă și PWM-ul pentru partea stângă și cea dreaptă. Când ajunge la curbă, setează viteza în funcția `set_speed` astfel: dacă e prea mare, îi dă valoarea `MAX_SPEED`, iar dacă e prea mică, cea `-MAX_SPEED`. De asemenea, se schimbă și PWM-ul dacă e pozitivă, respectiv negativă. Direcția este setată în funcția `set_direction`, folosind ca parametri poziția robotului pe hartă și valoarea maximă, respectiv minimă a servo-motorului. Distanța până la obstacol este calculată în funcția `set_tof` cu Time-Of-Flight (timpul necear luminii pentru a ajuge la obiect) și GPIO. 
+Programul acesta se ocupă de mișcarea propriu-zisă a robotului pe hartă. Are câte o variabliă pentru viteza maximă, respectiv minimă și PWM-ul pentru partea stângă și cea dreaptă. Funcția `get_gyro` calculează, cu ajutorul giroscopului, unghiul cu care robotul trebuie să ia curba. Când ajunge la curbă, setează viteza în funcția `set_speed` astfel: dacă e prea mare, îi dă valoarea `MAX_SPEED`, iar dacă e prea mică, cea `-MAX_SPEED`. De asemenea, se schimbă și PWM-ul dacă e pozitivă, respectiv negativă. Direcția este setată în funcția `set_direction`, folosind ca parametri poziția robotului pe hartă și valoarea maximă, respectiv minimă a servo-motorului. Distanța până la obstacol este calculată în funcția `set_tof` cu Time-Of-Flight (timpul necear luminii pentru a ajuge la obiect) și GPIO. 
 
 ## SSH
 
