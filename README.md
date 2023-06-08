@@ -12,7 +12,7 @@ Acesta este repo-ul care conține fișierele cu programele care stau la baza fun
 
 Funcțiile esențiale pentru mișcarea robotului pe hartă, bazate pe informațiile furnizate de giroscop și senzorii de distanță și culoare, sunt implementate în fișierul [`Follower.py`](../master/src/follower.py).
 
-În secțiunea `_init_` a clasei, se realizează inițializarea componentelor `gyro` și `pid` (pentru distanță). De asemenea, adresele senzorilor sunt modificate pentru asigurarea funcționării corecte. Procesele subiacente sunt de asemenea inițializate în această parte a clasei, permițând citirea independentă a senzorilor în cadrul programului.
+În secțiunea `_init_` a clasei `Follower()`, se realizează inițializarea componentelor `gyro` și `pid` (pentru distanță). De asemenea, adresele senzorilor sunt modificate pentru asigurarea funcționării corecte. Procesele subiacente sunt de asemenea inițializate în această parte a clasei, permițând citirea independentă a senzorilor în cadrul programului.
 
 
 Funcția `run_follower()` are rolul de a urmări pereții și de a menține o distanță constantă față de aceștia. Aceasta este esențială în etapa de calificare, în care nu există obstacole pe hartă. Funcția utilizează controlul PID al distanței în colaborare cu controlul PID al giroscopului pentru a crea un traseu optim pentru robot.
@@ -27,17 +27,31 @@ Acest program utilizează informațiile transmise de cameră printr-un cablu USB
  suprafața obiectului este mai mare, este clasificat ca fiind cub. Apoi, în funcție de culoarea pe care o returnează camera, determină dacă este unul verde sau roșu. în fiecare caz, set-pointul pentru culoarea respectivă se schimbă și valoarea suprafeței se înlocuiește cu cea a cubului pentru a se putea repeta procesul. Dacă în fața robotului nu se află nici un cub, este folosită o variabilă care la început are valoarea 'UNKNOWN'. Dacă suprafața detectată nu este mai mare ca cea determinată anterior, variabila `next_cube` rămâne neschimbată.
 
  ## [motors.py](../master/src/motors.py)
+
 Codul necesar controlării servomotorului și a motorului responsabil de mișcarea mașinii este localizat în fișierul [`motors.py`](../master/src/motors.py).
 
-La începutul codului, sunt inițializate limitele de putere pentru motoare și limitele minime și maxime pentru funcționarea servomotorului, precum și pinii de control necesari.
+În clasa `Motors()`, la începutul codului, sunt inițializate limitele de putere pentru motoare și limitele minime și maxime pentru funcționarea servomotorului, precum și pinii de control necesari.
 
-În această clasă se află funcția `set_speed()`, care inițial verifică integritatea parametrilor și îi încadrează între limite, dacă este cazul, apoi, în funcție de viteza setată, trimite date pe pinii `PWM`, pentru a determina mișcarea mașinii.
+În această clasă se află funcția `set_speed()`, care inițial verifică integritatea parametrilor și îi încadrează între limite, dacă este cazul, apoi, în funcție de viteza setată, trimite date pe pinii **PWM**, pentru a determina mișcarea mașinii.
 
 În aceeași clasă, se găsește și funcția `set_direction`, care primește ca parametru unghiul dorit pentru servomotor. Prin intermediul unui mapping calculat, această funcție convertește valorile și modifică orientarea roților în consecință.
 
  ## [pid.py](../master/src/pid.py)
 
  ## [sensors.py](../master/src/sensors.py)
+
+Fișierul [`sensors.py`](../master/src/sensors.py) conține clasele pentru toți senzorii, precum și teste asociate fiecărei clase, permițând verificarea eficienței programului.
+
+În clasa `Color()` se găsește funcția `color_read()` care are rolul de a determina culoarea detectată de senzorul de culoare. Funcția returnează **0** în cazul în care senzorul nu detectează nici albastru, nici oranj, **1** dacă detectează culoarea oranj și **2** dacă detectează culoarea albastră. Această informație este utilă pentru a determina direcția în care se deplasează robotul și pentru a efectua curbele necesare în direcția corespunzătoare. 
+<div style= "display:inline">Biblioteca senzorului de culoare oferă capacitatea de a obține date prin intermediul valorilor <div style="color:red;display:inline">R</div>,<div style="color:green;display:inline">G</div>,<div style="color:blue;display:inline">B</div>. Prin utilizarea unei funcții matematice adecvate, putem determina culoarea detectată de către senzor.</div>
+
+În această clasă, se mai află și funcțiile `power_off()` și `power_on()`, care se ocupă de resetarea senzorului.
+
+În clasa `Gyro()`, există funcția `calculate_angle()` care utilizează viteza unghiulară furnizată de giroscop pentru a determina unghiul la care se află robotul în raport cu unghiul inițial la care a fost pornit. Aceasta se realizează prin aplicarea unei formule matematice specifice.
+
+În clasa `Tof()`, pentru a gestiona adresele comune ale senzorilor de distanță și a senzorului de culoare, la inițializarea obiectului, folosim instrucțiuni care ne permit să le modificăm adresele în mod consecutiv, doar la începutul programului. Adresa inițială este setată la **0x29**, iar senzorii de distanță sunt echipați cu un pin **XSHUT** pentru resetare. Astfel, la început, avem ambele senzori de distanță conectați și senzorul de culoare oprit (folosind un tranzistor). Apoi, modificăm adresa senzorilor de distanță, resetăm un senzor de distanță și apoi modificăm adresa acestuia. În cele din urmă, pornim senzorul de culoare, care rămâne la adresa inițială, deoarece biblioteca acestuia nu include o funcție pentru schimbarea adresei. Toate aceste operațiuni pot fi apelate utilizând funcțiile `change_address()` și `reset_address()`.
+
+Funcția `get_distance()` returnează cu ușurință, printr-o valoare de tip double, distanța pe care o face cu peretele, în centrimetri.
 
 ## SSH
 
