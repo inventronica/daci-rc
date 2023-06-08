@@ -10,6 +10,18 @@ Acesta este repo-ul care conține fișierele cu programele care stau la baza fun
 
 ## [follower.py](../master/src/follower.py)
 
+Funcțiile esențiale pentru mișcarea robotului pe hartă, bazate pe informațiile furnizate de giroscop și senzorii de distanță și culoare, sunt implementate în fișierul [`Follower.py`](../master/src/follower.py).
+
+În secțiunea `_init_` a clasei, se realizează inițializarea componentelor `gyro` și `pid` (pentru distanță). De asemenea, adresele senzorilor sunt modificate pentru asigurarea funcționării corecte. Procesele subiacente sunt de asemenea inițializate în această parte a clasei, permițând citirea independentă a senzorilor în cadrul programului.
+
+
+Funcția `run_follower()` are rolul de a urmări pereții și de a menține o distanță constantă față de aceștia. Aceasta este esențială în etapa de calificare, în care nu există obstacole pe hartă. Funcția utilizează controlul PID al distanței în colaborare cu controlul PID al giroscopului pentru a crea un traseu optim pentru robot.
+
+Funcția `run_gyro_follower` are un scop similar cu funcția `run_follower()`, cu excepția faptului că distanța setată în acest caz reprezintă un unghi la care se dorește să se ajungă.
+
+`change_lane()`, folosește niște instrucțiuni prin care robotul poate să schimbe "banda" pe care se află. Pentru a fi un transfer cât mai sigur, robotul va face mai întâi un unghi de 45 de grade față de unghiul la care se afla înainte, iar apoi se redresează pe traiectoria inițială, însă cu peretele verificat de senzorul de distanță schimbat.
+
+
 
 ## [main.py](../master/src/main.py) 
 
