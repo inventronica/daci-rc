@@ -4,9 +4,15 @@ Acesta este repo-ul care conține fișierele cu programele care stau la baza fun
 
 ## Conținut
 
-- folderul `src` conține toate fișierele cu programul propriu-zis al robotului.
+<<<<<<< HEAD
+- folderul [`src`](../master/src) conține toate fișierele cu programul propriu-zis al robotului.
+- folderul [`raspberry`](../master/raspberry) conține în fișierul [`main.py`](../master/raspberry/main.py) programul care se ocupă de mișcarea robotului pe hartă, în funcție de pereți.
+- folderul [`servo_calib`](../master/servo_calib) conține în fișierul [`servo_calib.ino`](../master/servo_calib/servo_calib.ino) calibrarea servo-motorului de pe robot.
+=======
+- folderul `detect_cubes` conține în fișierul `main.py` un program care determină ce culoare are cubul care se află in fața robotului.
 - folderul `raspberry` conține în fișierul `main.py` programul care se ocupă de mișcarea robotului pe hartă, în funcție de pereți.
 - folderul `servo_calib` conține în fișierul `servo_calib.ino` calibrarea servo-motorului de pe robot.
+>>>>>>> parent of 908f6e3 (Update README.md)
 
 ## main.py (detect_cubes)
 
