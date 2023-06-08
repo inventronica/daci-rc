@@ -26,7 +26,7 @@ Modul de comunicare cu placa Raspberry Pi este prin SSH (Secure Shell), un proto
 2. Conectarea prin SSH la placă
 3. Clonarea repository-ului de git: `git clone git@github.com:inventronica/druid-rc.git` 
 4. Deschiderea folderului: `cd druid-rc/raspberry`
-5. Rularea aplicației cu comanda `python3 main.py`
+5. Rularea aplicației cu comanda: `python3 main.py`
 
 ## Conexiunea cu Raspberry 
 
