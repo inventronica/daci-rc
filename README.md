@@ -74,7 +74,7 @@ Modul de comunicare cu placa Raspberry Pi este prin SSH (Secure Shell), un proto
 2. Conectarea prin SSH la placă;
 3. Clonarea repository-ului de git: `git clone git@github.com:inventronica/daci-rc.git`;
 4. Instalarea bibliotecilor din fișierul ` dependencies.txt`, prin terminalul plăcii;
-5. Deschiderea folderului: `cd daci-rc/src/`;
+5. Deschiderea folderului: [`cd daci-rc/src/`](../master/src);
 6. Rularea aplicației cu comanda `python3 main.py`.
 
 ## Conexiunea cu Raspberry 
